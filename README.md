@@ -1,280 +1,250 @@
-# 18 NoSQL: Social Network API
+<div id="top"></div>
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-## Your Task
 
-MongoDB is a popular choice for many social networks due to its speed with large amounts of data and flexibility with unstructured data. Over the last part of this course, you’ll use several of the technologies that social networking platforms use in their full-stack applications. Because the foundation of these applications is data, it’s important that you understand how to build and structure the API first.
 
-Your homework is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. You’ll use Express.js for routing, a MongoDB database, and the Mongoose ODM. In addition to using the [Express.js](https://www.npmjs.com/package/express) and [Mongoose](https://www.npmjs.com/package/mongoose) packages, you may also optionally use a JavaScript date library of your choice or the native JavaScript `Date` object to format timestamps.
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-No seed data is provided, so you’ll need to create your own data using Insomnia after you’ve created your API.
 
-Because this application won’t be deployed, you’ll also need to create a walkthrough video that demonstrates its functionality and all of the following acceptance criteria being met. You’ll need to submit a link to the video and add it to the README of your project.
 
-## User Story
+<!-- PROJECT LOGO -->
+<!-- <br /> -->
+<div align="center">
+  <!-- <a href="https://github.com/github_username/repo_name">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a> -->
 
-```md
-AS A social media startup
-I WANT an API for my social network that uses a NoSQL database
-SO THAT my website can handle large amounts of unstructured data
-```
+<h3 align="center">Note Taker</h3>
 
-## Acceptance Criteria
+  <p align="center">
+    A web application with a backend built in Express.js that maintains notes written and saved by the user.
+    <br />
+    <a href="https://github.com/AlecDziwanowski/HW13-E-Commerce"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <!-- was: "View Demo" -->
+    <a href="https://drive.google.com/file/d/1XoUI0SEbfY81d4BTjqYhYeYGj_4gHcI2/view">View Demo</a>
+    ·
+    <a href="https://github.com/AlecDziwanowski/HW13-E-Commerce/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/AlecDziwanowski/HW13-E-Commerce/issues">Request Feature</a>
+  </p>
+</div>
 
-```md
-GIVEN a social network API
-WHEN I enter the command to invoke the application
-THEN my server is started and the Mongoose models are synced to the MongoDB database
-WHEN I open API GET routes in Insomnia for users and thoughts
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia
-THEN I am able to successfully create, update, and delete users and thoughts in my database
-WHEN I test API POST and DELETE routes in Insomnia
-THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
-```
 
-## Mock Up
 
-The following animations show examples of the application's API routes being tested in Insomnia.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-The following animation shows GET routes to return all users and all thoughts being tested in Insomnia:
 
-![Demo of GET routes to return all users and all thoughts being tested in Insomnia.](./Assets/18-nosql-homework-demo-01.gif)
 
-The following animation shows GET routes to return a single user and a single thought being tested in Insomnia:
+<!-- ABOUT THE PROJECT -->
+## About The Project
+Backend for an e-commerce web application, built in Express.js. The front end for this application has not yet been deployed. The backend creates a seeded database that can accept CRUD operations from the user.
 
-![Demo that shows GET routes to return a single user and a single thought being tested in Insomnia.](./Assets/18-nosql-homework-demo-02.gif)
+### Application Demonstration GIF 
+(for a video use demo link above)
 
-The following animation shows the POST, PUT, and DELETE routes for users being tested in Insomnia:
+![Team Profile Generator GIF](./Assets/functionalityGIF.gif)
 
-![Demo that shows the POST, PUT, and DELETE routes for users being tested in Insomnia.](./Assets/18-nosql-homework-demo-03.gif)
+<!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description` -->
 
-In addition to this, your walkthrough video should show the POST, PUT, and DELETE routes for thoughts being tested in Insomnia.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-The following animation shows the POST and DELETE routes for a user’s friend list being tested in Insomnia:
 
-![Demo that shows the POST and DELETE routes for a user’s friend list being tested in Insomnia.](./Assets/18-nosql-homework-demo-04.gif)
 
-In addition to this, your walkthrough video should show the POST and DELETE routes for reactions to thoughts being tested in Insomnia.
+### Built With
+<!-- * [Next.js](https://nextjs.org/)
+* [React.js](https://reactjs.org/)
+* [Vue.js](https://vuejs.org/)
+* [Angular](https://angular.io/)
+* [Svelte](https://svelte.dev/)
+* [Laravel](https://laravel.com) 
+* [JQuery](https://jquery.com) -->
+<!-- * [NPM - Inquirer](https://www.npmjs.com/package/inquirer) -->
+<!-- * [NPM - Jest](https://www.npmjs.com/package/jest) -->
+* [Node.js](https://nodejs.org/en/)
+* [Express.js](https://expressjs.com/)
+* [MySQL2](https://www.npmjs.com/package/mysql)
+* [Sequelize](https://www.npmjs.com/package/sequelize)
+* [dotenv](https://www.npmjs.com/package/dotenv)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
 ## Getting Started
+### Prerequisites
+Install node.js at the url in the "Built With" section above. Then, using the command line, run the commands listed in the "Installation" section below.
 
-Be sure to have MongoDB installed on your machine. Follow the [MongoDB installation guide on The Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/mongodb/how-to-install-mongodb) to install MongoDB locally.
+### Installation
+<!-- 1. Get a free API Key at [https://example.com](https://example.com) -->
+1. Clone the repo
+    ```sh
+    git clone https://github.com/AlecDziwanowski/HW13-E-Commerce.git
+    ```
+2. Install NPM packages, including express.js
+    ```sh
+    npm install
+    ```
+3. Initialize MySQL from command line
+    ```sh
+    mysql -u root -p
+    ```
+4. Enter password for MySQL server
 
-Use the following guidelines to set up your models and API routes:
+5. Drop database
+    ```sh
+    DROP DATABASE IF EXISTS ecommerce_db;
+    ```
+6. Create new database
+    ```sh
+    CREATE DATABASE ecommerce_db;
+    ```
+7. Quit MySQL command line prompt
+    ```sh
+    quit
+    ```
+8. Create .env file with the database name (ecommerce_db) and your username and password for MySQL server
 
-### Models
+9. Seed database
+    ```sh
+    npm run seed
+    ```
+10. Run server
+    ```sh
+    npm run start
+    ```
+<!-- 4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ``` -->
 
-**User**:
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-* `username`
-  * String
-  * Unique
-  * Required
-  * Trimmed
 
-* `email`
-  * String
-  * Required
-  * Unique
-  * Must match a valid email address (look into Mongoose's matching validation)
 
-* `thoughts`
-  * Array of `_id` values referencing the `Thought` model
+<!-- USAGE EXAMPLES -->
+## Usage
+Full-scale functionality can be viewed at the demo link at the top of this page.
 
-* `friends`
-  * Array of `_id` values referencing the `User` model (self-reference)
+Use a program for interacting with and designing HTTP-based APIs, such as Insomnia, to view endpoints for database access and CRUD operations.
 
-**Schema Settings**:
+<!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
-Create a virtual called `friendCount` that retrieves the length of the user's `friends` array field on query.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
----
 
-**Thought**:
 
-* `thoughtText`
-  * String
-  * Required
-  * Must be between 1 and 280 characters
+<!-- ROADMAP -->
+## Roadmap
+### Future Modifications
+- Build frontend
 
-* `createdAt`
-  * Date
-  * Set default value to the current timestamp
-  * Use a getter method to format the timestamp on query
+<!-- - [ ] Nested Feature -->
 
-* `username` (The user that created this thought)
-  * String
-  * Required
+See the [open issues](https://github.com/AlecDziwanowski/HW13-E-Commerce/issues) for a full list of proposed features (and known issues).
 
-* `reactions` (These are like replies)
-  * Array of nested documents created with the `reactionSchema`
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-**Schema Settings**:
 
-Create a virtual called `reactionCount` that retrieves the length of the thought's `reactions` array field on query.
 
----
+<!-- CONTRIBUTING -->
+## Contributing
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-**Reaction** (SCHEMA ONLY)
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thank you!
 
-* `reactionId`
-  * Use Mongoose's ObjectId data type
-  * Default value is set to a new ObjectId
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-* `reactionBody`
-  * String
-  * Required
-  * 280 character maximum
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-* `username`
-  * String
-  * Required
 
-* `createdAt`
-  * Date
-  * Set default value to the current timestamp
-  * Use a getter method to format the timestamp on query
 
-**Schema Settings**:
+<!-- LICENSE -->
+## License
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-This will not be a model, but rather will be used as the `reaction` field's subdocument schema in the `Thought` model.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### API Routes
 
-**`/api/users`**
 
-* `GET` all users
-
-* `GET` a single user by its `_id` and populated thought and friend data
-
-* `POST` a new user:
-
-```json
-// example data
-{
-  "username": "lernantino",
-  "email": "lernantino@gmail.com"
-}
-```
-
-* `PUT` to update a user by its `_id`
-
-* `DELETE` to remove user by its `_id`
-
-**BONUS**: Remove a user's associated thoughts when deleted.
-
----
-
-**`/api/users/:userId/friends/:friendId`**
-
-* `POST` to add a new friend to a user's friend list
-
-* `DELETE` to remove a friend from a user's friend list
-
----
-
-**`/api/thoughts`**
-
-* `GET` to get all thoughts
-
-* `GET` to get a single thought by its `_id`
-
-* `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
-
-```json
-// example data
-{
-  "thoughtText": "Here's a cool thought...",
-  "username": "lernantino",
-  "userId": "5edff358a0fcb779aa7b118b"
-}
-```
-
-* `PUT` to update a thought by its `_id`
-
-* `DELETE` to remove a thought by its `_id`
-
----
-
-**`/api/thoughts/:thoughtId/reactions`**
-
-* `POST` to create a reaction stored in a single thought's `reactions` array field
-
-* `DELETE` to pull and remove a reaction by the reaction's `reactionId` value
-
-## Grading Requirements
-
-> **Note**: If a homework assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This homework is graded based on the following criteria:
-
-### Deliverables: 10%
-
-* Your GitHub repository containing your application code.
-
-### Walkthrough Video: 37%
-
-* A walkthrough video that demonstrates the functionality of the social media API must be submitted, and a link to the video should be included in your README file.
-
-  * The walkthrough video must show all of the technical acceptance criteria being met.
-
-  * The walkthrough video must demonstrate how to start the application’s server.
-
-  * The walkthrough video must demonstrate GET routes for all users and all thoughts being tested in Insomnia.
-
-  * The walkthrough video must demonstrate GET routes for a single user and a single thought being tested in Insomnia.
-
-  * The walkthrough video must demonstrate POST, PUT, and DELETE routes for users and thoughts being tested in Insomnia.
-
-  * Walkthrough video must demonstrate POST and DELETE routes for a user’s friend list being tested in Insomnia.
-
-  * Walkthrough video must demonstrate POST and DELETE routes for reactions to thoughts being tested in Insomnia.
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Uses the [Mongoose package](https://www.npmjs.com/package/mongoose) to connect to a MongoDB database.
-
-  * Includes User and Thought models outlined in the homework instructions.
-
-  * Includes schema settings for User and Thought models as outlined in the homework instructions.
-
-  * Includes Reactions as the `reaction` field's subdocument schema in the Thought model.
-
-  * Uses functionality to format queried timestamps properly.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality README with description and a link to a walkthrough video.
-
-### Bonus: +10 Points
-
-* Application deletes a user's associated thoughts when the user is deleted.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
----
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+<!-- CONTACT -->
+## Contact
+Alec Dziwanowski - [LinkedIn](https://www.linkedin.com/in/alecdziwanowski/) and [GitHub](https://github.com/AlecDziwanowski) <br>
+Project Link: [GitHub Repo](https://github.com/AlecDziwanowski/HW13-E-Commerce)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+* My wife, for the support necessary to achieve a new reality.
+* [othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
+[contributors-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
+[forks-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/network/members
+[stars-shield]: https://img.shields.io/github/stars/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
+[stars-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/stargazers
+[issues-shield]: https://img.shields.io/github/issues/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
+[issues-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/issues
+[license-shield]: https://img.shields.io/github/license/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
+[license-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/blob/main/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/AlecDziwanowski
+[product-screenshot]: ./Assets/TPG_Screenshot.png
