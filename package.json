@@ -1,12 +1,12 @@
 {
-  "name": "26-Stu_Mongoose-CRUD",
+  "name": "HW18-SocialNetworkAPI",
   "version": "1.0.0",
   "description": "Reverse engineer developer activity for CRUD methods in Mongoose",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
+    "start": "node server",
+    "dev": "nodemon server",
     "seed": "node utils/seed"
   },
   "dependencies": {

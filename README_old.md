@@ -193,4 +193,4 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 
 ## Questions
 * use commented code in connection.js instead bc we are not using heroku?
-* get rid of .env?
+* include .env?
