@@ -189,3 +189,8 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 ## Review
 * A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+
+
+## Questions
+* use commented code in connection.js instead bc we are not using heroku?
+* get rid of .env?

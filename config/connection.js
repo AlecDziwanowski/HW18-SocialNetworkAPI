@@ -9,3 +9,13 @@ connect(connectionString, {
 });
 
 module.exports = connection;
+
+// use below instead bc we are not using heroku?
+// const { connect, connection } = require('mongoose');
+
+// connect('mongodb://localhost/developersApplications', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+// module.exports = connection;
