@@ -44,25 +44,6 @@ In addition to this, your walkthrough video should show the POST and DELETE rout
 
 ## Getting Started
 ### Models
-**Reaction** (SCHEMA ONLY)
-* `reactionId`
-  * Use Mongoose's ObjectId data type
-  * Default value is set to a new ObjectId
-
-* `reactionBody`
-  * String
-  * Required
-  * 280 character maximum
-
-* `username`
-  * String
-  * Required
-
-* `createdAt`
-  * Date
-  * Set default value to the current timestamp
-  * Use a getter method to format the timestamp on query
-
 **Schema Settings**:
 This will not be a model, but rather will be used as the `reaction` field's subdocument schema in the `Thought` model.
 
@@ -127,21 +108,12 @@ This will not be a model, but rather will be used as the `reaction` field's subd
   * Walkthrough video must demonstrate POST and DELETE routes for a user’s friend list being tested in Insomnia.
   * Walkthrough video must demonstrate POST and DELETE routes for reactions to thoughts being tested in Insomnia.
 
-### Technical Acceptance Criteria: 40%
-* Satisfies all of the preceding acceptance criteria plus the following:
-  * Uses the [Mongoose package](https://www.npmjs.com/package/mongoose) to connect to a MongoDB database.
-  * Includes User and Thought models outlined in the homework instructions.
-  * Includes schema settings for User and Thought models as outlined in the homework instructions.
-  * Includes Reactions as the `reaction` field's subdocument schema in the Thought model.
-  * Uses functionality to format queried timestamps properly.
-
 ## Review
 * A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
 
 ## Questions
 * use commented code in connection.js instead bc we are not using heroku?
 * include .env?
 * need a setter in virtual for thoughtSchema and userSchema?
-* change format of time in thought?
+* change format of time in thought and reaction models?

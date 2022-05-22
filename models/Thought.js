@@ -17,7 +17,7 @@ const thoughtSchema = new Schema(
             get: (timeStamp) => {
                 if (timeStamp)
                     return timeStamp.toISOString().split("T")[1]
-            }
+            },
         },
         username: {
             type: String,
