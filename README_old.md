@@ -4,8 +4,6 @@ Your homework is to build an API for a social network web application where user
 
 No seed data is provided, so you’ll need to create your own data using Insomnia after you’ve created your API.
 
-Because this application won’t be deployed, you’ll also need to create a walkthrough video that demonstrates its functionality and all of the following acceptance criteria being met. You’ll need to submit a link to the video and add it to the README of your project.
-
 ## User Story
 ```md
 AS A social media startup
@@ -28,8 +26,6 @@ WHEN I test API POST and DELETE routes in Insomnia
 ```
 
 ## Mock Up
-The following animations show examples of the application's API routes being tested in Insomnia.
-
 The following animation shows GET routes to return all users and all thoughts being tested in Insomnia:
 ![Demo of GET routes to return all users and all thoughts being tested in Insomnia.](./Assets/18-nosql-homework-demo-01.gif)
 
@@ -48,53 +44,6 @@ In addition to this, your walkthrough video should show the POST and DELETE rout
 
 ## Getting Started
 ### Models
-**User**:
-* `username`
-  * String
-  * Unique
-  * Required
-  * Trimmed
-
-* `email`
-  * String
-  * Required
-  * Unique
-  * Must match a valid email address (look into Mongoose's matching validation)
-
-* `thoughts`
-  * Array of `_id` values referencing the `Thought` model
-
-* `friends`
-  * Array of `_id` values referencing the `User` model (self-reference)
-
-**Schema Settings**:
-Create a virtual called `friendCount` that retrieves the length of the user's `friends` array field on query.
-
----
-
-**Thought**:
-* `thoughtText`
-  * String
-  * Required
-  * Must be between 1 and 280 characters
-
-* `createdAt`
-  * Date
-  * Set default value to the current timestamp
-  * Use a getter method to format the timestamp on query
-
-* `username` (The user that created this thought)
-  * String
-  * Required
-
-* `reactions` (These are like replies)
-  * Array of nested documents created with the `reactionSchema`
-
-**Schema Settings**:
-Create a virtual called `reactionCount` that retrieves the length of the thought's `reactions` array field on query.
-
----
-
 **Reaction** (SCHEMA ONLY)
 * `reactionId`
   * Use Mongoose's ObjectId data type
@@ -194,3 +143,5 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 ## Questions
 * use commented code in connection.js instead bc we are not using heroku?
 * include .env?
+* need a setter in virtual for thoughtSchema and userSchema?
+* change format of time in thought?
