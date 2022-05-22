@@ -25,72 +25,20 @@ WHEN I test API POST and DELETE routes in Insomnia
   THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 ```
 
-## Mock Up
-The following animation shows GET routes to return all users and all thoughts being tested in Insomnia:
-![Demo of GET routes to return all users and all thoughts being tested in Insomnia.](./Assets/18-nosql-homework-demo-01.gif)
-
-The following animation shows GET routes to return a single user and a single thought being tested in Insomnia:
-
-![Demo that shows GET routes to return a single user and a single thought being tested in Insomnia.](./Assets/18-nosql-homework-demo-02.gif)
-The following animation shows the POST, PUT, and DELETE routes for users being tested in Insomnia:
-
-![Demo that shows the POST, PUT, and DELETE routes for users being tested in Insomnia.](./Assets/18-nosql-homework-demo-03.gif)
-In addition to this, your walkthrough video should show the POST, PUT, and DELETE routes for thoughts being tested in Insomnia.
-
-The following animation shows the POST and DELETE routes for a user’s friend list being tested in Insomnia:
-![Demo that shows the POST and DELETE routes for a user’s friend list being tested in Insomnia.](./Assets/18-nosql-homework-demo-04.gif)
-
-In addition to this, your walkthrough video should show the POST and DELETE routes for reactions to thoughts being tested in Insomnia.
-
 ## Getting Started
 ### Models
 **Schema Settings**:
 This will not be a model, but rather will be used as the `reaction` field's subdocument schema in the `Thought` model.
 
 ### API Routes
-
 **`/api/users`**
-* `GET` all users
 * `GET` a single user by its `_id` and populated thought and friend data
-* `POST` a new user:
-
-```json
-// example data
-{
-  "username": "lernantino",
-  "email": "lernantino@gmail.com"
-}
-```
-
-* `PUT` to update a user by its `_id`
-* `DELETE` to remove user by its `_id`
-
 **BONUS**: Remove a user's associated thoughts when deleted.
 
 ---
 
-**`/api/users/:userId/friends/:friendId`**
-* `POST` to add a new friend to a user's friend list
-* `DELETE` to remove a friend from a user's friend list
-
----
-
 **`/api/thoughts`**
-* `GET` to get all thoughts
-* `GET` to get a single thought by its `_id`
 * `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
-
-```json
-// example data
-{
-  "thoughtText": "Here's a cool thought...",
-  "username": "lernantino",
-  "userId": "5edff358a0fcb779aa7b118b"
-}
-```
-
-* `PUT` to update a thought by its `_id`
-* `DELETE` to remove a thought by its `_id`
 
 ---
 
@@ -117,3 +65,5 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 * include .env?
 * need a setter in virtual for thoughtSchema and userSchema?
 * change format of time in thought and reaction models?
+* delete routes for friends and reactions need ids?
+* post routes for friends and reactions don't need ids?
