@@ -25,27 +25,6 @@ WHEN I test API POST and DELETE routes in Insomnia
   THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 ```
 
-## Getting Started
-### Models
-**Schema Settings**:
-This will not be a model, but rather will be used as the `reaction` field's subdocument schema in the `Thought` model.
-
-### API Routes
-**`/api/users`**
-* `GET` a single user by its `_id` and populated thought and friend data
-**BONUS**: Remove a user's associated thoughts when deleted.
-
----
-
-**`/api/thoughts`**
-* `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
-
----
-
-**`/api/thoughts/:thoughtId/reactions`**
-* `POST` to create a reaction stored in a single thought's `reactions` array field
-* `DELETE` to pull and remove a reaction by the reaction's `reactionId` value
-
 ### Walkthrough Video: 37%
 * A walkthrough video that demonstrates the functionality of the social media API must be submitted, and a link to the video should be included in your README file.
   * The walkthrough video must show all of the technical acceptance criteria being met.
@@ -65,5 +44,10 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 * include .env?
 * need a setter in virtual for thoughtSchema and userSchema?
 * change format of time in thought and reaction models?
-* delete routes for friends and reactions need ids?
-* post routes for friends and reactions don't need ids?
+* need `.select('-__v')` or `.lean()` in getSingleUser?
+* How to do this?:
+  **`/api/thoughts`**
+  * `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
+* Did I do this?
+  **`/api/users`**
+  * `GET` a single user by its `_id` and populated thought and friend data
