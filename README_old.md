@@ -2,8 +2,6 @@
 ## Your Task
 Your homework is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. You’ll use Express.js for routing, a MongoDB database, and the Mongoose ODM. In addition to using the [Express.js](https://www.npmjs.com/package/express) and [Mongoose](https://www.npmjs.com/package/mongoose) packages, you may also optionally use a JavaScript date library of your choice or the native JavaScript `Date` object to format timestamps.
 
-No seed data is provided, so you’ll need to create your own data using Insomnia after you’ve created your API.
-
 ## User Story
 ```md
 AS A social media startup
@@ -41,7 +39,6 @@ WHEN I test API POST and DELETE routes in Insomnia
 
 ## Questions
 * use commented code in connection.js instead bc we are not using heroku?
-* include .env?
 * need a setter in virtual for thoughtSchema and userSchema?
 * change format of time in thought and reaction models?
 * need `.select('-__v')` or `.lean()` in getSingleUser?
