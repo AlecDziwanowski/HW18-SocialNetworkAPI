@@ -38,13 +38,13 @@ WHEN I test API POST and DELETE routes in Insomnia
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
 ## Questions
-* use commented code in connection.js instead bc we are not using heroku?
 * need a setter in virtual for thoughtSchema and userSchema?
 * change format of time in thought and reaction models?
 * need `.select('-__v')` or `.lean()` in getSingleUser?
 * How to do this?:
   **`/api/thoughts`**
   * `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
+  <!-- $push (activity 21 create comment) also kind of like addAssignment in miniproject -->
 * Did I do this?
   **`/api/users`**
   * `GET` a single user by its `_id` and populated thought and friend data

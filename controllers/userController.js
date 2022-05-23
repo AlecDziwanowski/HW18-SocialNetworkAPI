@@ -4,6 +4,7 @@ module.exports = {
     // get all users
     getUsers(req, res) {
         User.find()
+            .select('-__v')
             .then(users => res.json(users))
             .catch(err => res.status(500).json(err.message));
     },
@@ -52,7 +53,7 @@ module.exports = {
             )
             .then(thought =>
                 !thought
-                    ? res.status(404).json({ message: 'User deleted, but no such thought exists.' })
+                    ? res.status(404).json({ message: 'User deleted, but no associated thought exists.' })
                     : res.json({ message: 'User successfully deleted.' })
             )
             .catch(err => res.status(500).json(err.message));
