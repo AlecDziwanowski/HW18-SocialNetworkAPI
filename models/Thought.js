@@ -39,12 +39,6 @@ thoughtSchema
     .get(function () {
         return `${this.reactions.length}`;
     })
-// Setter to set the first and last name
-//   .set(function (v) {
-//     const first = v.split(' ')[0];
-//     const last = v.split(' ')[1];
-//     this.set({ first, last });
-//   });
 
 const Thought = model('thought', thoughtSchema);
 

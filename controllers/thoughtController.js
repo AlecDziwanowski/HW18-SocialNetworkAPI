@@ -1,4 +1,4 @@
-const { Thought } = require('../models');
+const { Thought, User } = require('../models');
 
 module.exports = {
     // get all thoughts
@@ -22,9 +22,8 @@ module.exports = {
             .then(user =>
                 !user
                     ? res.status(404).json({ message: 'Thought created, but no such user exists.' })
-                    : res.json({ message: 'Thought successfully created.' })
+                    : res.json(user)
             )
-            .then(thought => res.json(thought))
             .catch(err => res.status(500).json(err.message));
     },
     // get a single thought
@@ -42,7 +41,7 @@ module.exports = {
     updateThought(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
-            { $set: req.body },
+            { $set: ({ thoughtText: req.body.thoughtText }) },
             { runValidators: true, new: true },
         )
             .then(thought =>
@@ -87,7 +86,7 @@ module.exports = {
             .then(thought =>
                 !thought
                     ? res.status(404).json({ message: 'No such thought exists.' })
-                    : res.json(thought)
+                    : res.json({ message: 'Successfully deleted reaction.' })
             )
             .catch(err => res.status(500).json(err.message));
     },

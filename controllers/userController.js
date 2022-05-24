@@ -53,7 +53,7 @@ module.exports = {
             )
             .then(thought =>
                 !thought
-                    ? res.status(404).json({ message: 'User deleted, but no associated thought exists.' })
+                    ? res.status(404).json({ message: 'User deleted, but no associated thoughts exist.' })
                     : res.json({ message: 'User successfully deleted.' })
             )
             .catch(err => res.status(500).json(err.message));
@@ -63,7 +63,7 @@ module.exports = {
     addFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $addToSet: { friends: req.body } },
+            { $addToSet: { friends: req.body._id } },
             { runValidators: true, new: true },
         )
             .then(user =>
@@ -77,13 +77,13 @@ module.exports = {
     removeFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friends: { friendId: req.params.friendId } } },
+            { $pull: { friends: req.params.friendId } },
             { runValidators: true, new: true },
         )
             .then(user =>
                 !user
                     ? res.status(404).json({ message: 'No such user exists.' })
-                    : res.json(user)
+                    : res.json({ message: 'Successfully deleted friend.' })
             )
             .catch(err => res.status(500).json(err.message));
     },
