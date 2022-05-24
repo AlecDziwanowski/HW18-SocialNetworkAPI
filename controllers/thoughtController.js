@@ -12,6 +12,18 @@ module.exports = {
     createThought(req, res) {
         Thought.create(req.body)
             // need to push this thought to user's thought array?
+            .then(thought => {
+                return User.findOneAndUpdate(
+                    { _id: req.body.userId },
+                    { $push: { thoughts: thought._id } },
+                    { new: true }
+                );
+            })
+            .then(user =>
+                !user
+                    ? res.status(404).json({ message: 'Thought created, but no such user exists.' })
+                    : res.json({ message: 'Thought successfully created.' })
+            )
             .then(thought => res.json(thought))
             .catch(err => res.status(500).json(err.message));
     },
