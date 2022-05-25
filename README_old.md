@@ -39,8 +39,4 @@ WHEN I test API POST and DELETE routes in Insomnia
 
 ## Questions
 * need a setter in virtual for thoughtSchema and userSchema?
-* change format of time in thought and reaction models?
-* How to do this?:
-  **`/api/thoughts`**
-  * `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
-  <!-- $push (activity 21 create comment) also kind of like addAssignment in miniproject -->
+

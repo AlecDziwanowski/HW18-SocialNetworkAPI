@@ -5,8 +5,8 @@ const userSchema = new Schema(
         username: {
             type: String,
             required: true,
-            trim: true,
             unique: true,
+            trim: true,
         },
         email: {
             type: String,
@@ -30,8 +30,10 @@ const userSchema = new Schema(
     {
         toJSON: {
             virtuals: true,
+            getters: true,
         },
-    }
+        id: false,
+    },
 );
 
 userSchema

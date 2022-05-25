@@ -4,6 +4,8 @@ module.exports = {
     // get all users
     getUsers(req, res) {
         User.find()
+            .populate({ path: 'friends', select: '-__v' })
+            .populate({ path: 'thoughts', select: '-__v' })
             .select('-__v')
             .then(users => res.json(users))
             .catch(err => res.status(500).json(err.message));
@@ -17,6 +19,8 @@ module.exports = {
     // get a single user
     getSingleUser(req, res) {
         User.findOne({ _id: req.params.userId })
+            .populate({ path: 'thoughts', select: '-__v' })
+            .populate({ path: 'friends', select: '-__v' })
             .select('-__v')
             .then(user =>
                 !user
@@ -32,18 +36,18 @@ module.exports = {
             { $set: req.body },
             { runValidators: true, new: true },
         )
-            .then(user =>
-                !user
+            .then(updatedUser =>
+                !updatedUser
                     ? res.status(404).json({ message: 'No such user exists.' })
-                    : res.json(user)
+                    : res.json(updatedUser)
             )
             .catch(err => res.status(500).json(err.message));
     },
     // delete a user and remove their thoughts
     deleteUser(req, res) {
         User.findOneAndRemove({ _id: req.params.userId })
-            .then(user =>
-                !user
+            .then(deletedUser =>
+                !deletedUser
                     ? res.status(404).json({ message: 'No such user exists.' })
                     : Thought.findOneAndUpdate(
                         { users: req.params.userId },
@@ -54,7 +58,7 @@ module.exports = {
             .then(thought =>
                 !thought
                     ? res.status(404).json({ message: 'User deleted, but no associated thoughts exist.' })
-                    : res.json({ message: 'User successfully deleted.' })
+                    : res.json({ message: 'User and thoughts successfully deleted.' })
             )
             .catch(err => res.status(500).json(err.message));
     },
@@ -63,9 +67,10 @@ module.exports = {
     addFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $addToSet: { friends: req.body._id } },
+            { $addToSet: { friends: req.body } },
             { runValidators: true, new: true },
         )
+            .select('-__v')
             .then(user =>
                 !user
                     ? res.status(404).json({ message: 'No such user exists.' })
@@ -80,6 +85,7 @@ module.exports = {
             { $pull: { friends: req.params.friendId } },
             { runValidators: true, new: true },
         )
+            .select('-__v')
             .then(user =>
                 !user
                     ? res.status(404).json({ message: 'No such user exists.' })

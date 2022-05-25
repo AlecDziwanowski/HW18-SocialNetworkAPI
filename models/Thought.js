@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
+const moment = require('moment');
 
 // Schema to create Student model
 const thoughtSchema = new Schema(
@@ -13,11 +14,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            // likely need to change format
-            get: (timeStamp) => {
-                if (timeStamp)
-                    return timeStamp.toISOString().split("T")[1]
-            },
+            get: dateTime => moment(dateTime).format('MMMM Do YYYY, h:mm:ss a')
         },
         username: {
             type: String,
@@ -30,6 +27,7 @@ const thoughtSchema = new Schema(
             virtuals: true,
             getters: true,
         },
+        id: false,
     }
 );
 

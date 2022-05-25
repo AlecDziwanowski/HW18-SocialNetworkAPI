@@ -4,6 +4,7 @@ module.exports = {
     // get all thoughts
     getThoughts(req, res) {
         Thought.find()
+            .populate({ path: 'reactions', select: '-__v' })
             .select('-__v')
             .then(thoughts => res.json(thoughts))
             .catch(err => res.status(500).json(err.message));
@@ -11,11 +12,10 @@ module.exports = {
     // create a new thought
     createThought(req, res) {
         Thought.create(req.body)
-            // need to push this thought to user's thought array?
             .then(thought => {
                 return User.findOneAndUpdate(
                     { _id: req.body.userId },
-                    { $push: { thoughts: thought._id } },
+                    { $push: { thoughts: thought } },
                     { new: true }
                 );
             })
@@ -29,6 +29,7 @@ module.exports = {
     // get a single thought
     getSingleThought(req, res) {
         Thought.findOne({ _id: req.params.thoughtId })
+            .populate({ path: 'reactions', select: '-__v' })
             .select('-__v')
             .then(thought =>
                 !thought
@@ -41,21 +42,24 @@ module.exports = {
     updateThought(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
-            { $set: ({ thoughtText: req.body.thoughtText }) },
+            { $set: req.body },
+            // { $set: ({ thoughtText: req.body.thoughtText }) },
             { runValidators: true, new: true },
         )
-            .then(thought =>
-                !thought
+            .populate({ path: 'reactions', select: '-__v' })
+            .select('-___v')
+            .then(updatedThought =>
+                !updatedThought
                     ? res.status(404).json({ message: 'No such thought exists.' })
-                    : res.json(thought)
+                    : res.json(updatedThought)
             )
             .catch(err => res.status(500).json(err.message));
     },
     // delete a thought and remove their thoughts
     deleteThought(req, res) {
         Thought.findOneAndRemove({ _id: req.params.thoughtId })
-            .then(thought =>
-                !thought
+            .then(deletedThought =>
+                !deletedThought
                     ? res.status(404).json({ message: 'No such thought exists.' })
                     : res.json({ message: 'Thought successfully deleted.' })
             )
