@@ -7,8 +7,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -17,14 +15,13 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <!-- <br /> -->
@@ -33,24 +30,22 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-<h3 align="center">Note Taker</h3>
+<h3 align="center">Social Network API</h3>
 
   <p align="center">
     A web application with a backend built in Express.js that maintains notes written and saved by the user.
     <br />
-    <a href="https://github.com/AlecDziwanowski/HW13-E-Commerce"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <!-- was: "View Demo" -->
-    <a href="https://drive.google.com/file/d/1XoUI0SEbfY81d4BTjqYhYeYGj_4gHcI2/view">View Demo</a>
+    <a href="https://drive.google.com/file/d/1UDUmv-ylrnEFxORbrN4SaKxSavzPX-Os/view">View Demo</a>
     ·
-    <a href="https://github.com/AlecDziwanowski/HW13-E-Commerce/issues">Report Bug</a>
+    <a href="https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI/issues">Report Bug</a>
     ·
-    <a href="https://github.com/AlecDziwanowski/HW13-E-Commerce/issues">Request Feature</a>
+    <a href="https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI/issues">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -78,16 +73,14 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Backend for an e-commerce web application, built in Express.js. The front end for this application has not yet been deployed. The backend creates a seeded database that can accept CRUD operations from the user.
+An API for a social network web application built in Express.js. Users can friend one another, post thoughts, and react to friends' thoughts. The front end for this application has not yet been deployed.
 
 ### Application Demonstration GIF 
 (for a video use demo link above)
 
-![Team Profile Generator GIF](./Assets/functionalityGIF.gif)
+![Social Network API GIF](./Assets/functionalityGIF.gif)
 
 <!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description` -->
 
@@ -107,9 +100,9 @@ Backend for an e-commerce web application, built in Express.js. The front end fo
 <!-- * [NPM - Jest](https://www.npmjs.com/package/jest) -->
 * [Node.js](https://nodejs.org/en/)
 * [Express.js](https://expressjs.com/)
-* [MySQL2](https://www.npmjs.com/package/mysql)
-* [Sequelize](https://www.npmjs.com/package/sequelize)
-* [dotenv](https://www.npmjs.com/package/dotenv)
+* [MongoDB](https://www.mongodb.com/)
+* [Mongoose](https://www.npmjs.com/package/mongoose)
+* [Moment.js](https://momentjs.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -118,46 +111,23 @@ Backend for an e-commerce web application, built in Express.js. The front end fo
 <!-- GETTING STARTED -->
 ## Getting Started
 ### Prerequisites
-Install node.js at the url in the "Built With" section above. Then, using the command line, run the commands listed in the "Installation" section below.
+Install node.js and mongoDB at the urls in the "Built With" section above. Then, using the command line, run the commands listed in the "Installation" section below.
 
 ### Installation
 <!-- 1. Get a free API Key at [https://example.com](https://example.com) -->
 1. Clone the repo
     ```sh
-    git clone https://github.com/AlecDziwanowski/HW13-E-Commerce.git
+    git clone git@github.com:AlecDziwanowski/HW18-SocialNetworkAPI.git
     ```
-2. Install NPM packages, including express.js
+2. Install NPM packages, including express.js and mongoose
     ```sh
     npm install
     ```
-3. Initialize MySQL from command line
-    ```sh
-    mysql -u root -p
-    ```
-4. Enter password for MySQL server
-
-5. Drop database
-    ```sh
-    DROP DATABASE IF EXISTS ecommerce_db;
-    ```
-6. Create new database
-    ```sh
-    CREATE DATABASE ecommerce_db;
-    ```
-7. Quit MySQL command line prompt
-    ```sh
-    quit
-    ```
-8. Create .env file with the database name (ecommerce_db) and your username and password for MySQL server
-
-9. Seed database
-    ```sh
-    npm run seed
-    ```
-10. Run server
+3. Run server
     ```sh
     npm run start
     ```
+4. Check endpoints on Insomnia (or other application of that type)
 <!-- 4. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
@@ -183,10 +153,11 @@ Use a program for interacting with and designing HTTP-based APIs, such as Insomn
 ## Roadmap
 ### Future Modifications
 - Build frontend
+- When a friend is added to one user, add said user as friend as well.
 
 <!-- - [ ] Nested Feature -->
 
-See the [open issues](https://github.com/AlecDziwanowski/HW13-E-Commerce/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -220,7 +191,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 Alec Dziwanowski - [LinkedIn](https://www.linkedin.com/in/alecdziwanowski/) and [GitHub](https://github.com/AlecDziwanowski) <br>
-Project Link: [GitHub Repo](https://github.com/AlecDziwanowski/HW13-E-Commerce)
+Project Link: [GitHub Repo](https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -235,16 +206,16 @@ Project Link: [GitHub Repo](https://github.com/AlecDziwanowski/HW13-E-Commerce)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
-[contributors-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
-[forks-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/network/members
-[stars-shield]: https://img.shields.io/github/stars/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
-[stars-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/stargazers
-[issues-shield]: https://img.shields.io/github/issues/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
-[issues-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/issues
-[license-shield]: https://img.shields.io/github/license/AlecDziwanowski/HW13-E-Commerce.svg?style=for-the-badge
-[license-url]: https://github.com/AlecDziwanowski/HW13-E-Commerce/blob/main/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/AlecDziwanowski/HW18-SocialNetworkAPI.svg?style=for-the-badge
+[contributors-url]: https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/AlecDziwanowski/HW18-SocialNetworkAPI.svg?style=for-the-badge
+[forks-url]: https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI/network/members
+[stars-shield]: https://img.shields.io/github/stars/AlecDziwanowski/HW18-SocialNetworkAPI.svg?style=for-the-badge
+[stars-url]: https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI/stargazers
+[issues-shield]: https://img.shields.io/github/issues/AlecDziwanowski/HW18-SocialNetworkAPI.svg?style=for-the-badge
+[issues-url]: https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI/issues
+[license-shield]: https://img.shields.io/github/license/AlecDziwanowski/HW18-SocialNetworkAPI.svg?style=for-the-badge
+[license-url]: https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/AlecDziwanowski
 [product-screenshot]: ./Assets/TPG_Screenshot.png
