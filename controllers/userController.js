@@ -19,8 +19,8 @@ module.exports = {
     // get a single user
     getSingleUser(req, res) {
         User.findOne({ _id: req.params.userId })
-            .populate({ path: 'thoughts', select: '-__v' })
             .populate({ path: 'friends', select: '-__v' })
+            .populate({ path: 'thoughts', select: '-__v' })
             .select('-__v')
             .then(user =>
                 !user
@@ -36,6 +36,8 @@ module.exports = {
             { $set: req.body },
             { runValidators: true, new: true },
         )
+            .populate({ path: 'friends', select: '-__v' })
+            .populate({ path: 'thoughts', select: '-__v' })
             .then(updatedUser =>
                 !updatedUser
                     ? res.status(404).json({ message: 'No such user exists.' })
@@ -70,6 +72,8 @@ module.exports = {
             { $addToSet: { friends: req.body } },
             { runValidators: true, new: true },
         )
+            .populate({ path: 'friends', select: '-__v' })
+            .populate({ path: 'thoughts', select: '-__v' })
             .select('-__v')
             .then(user =>
                 !user
@@ -85,7 +89,6 @@ module.exports = {
             { $pull: { friends: req.params.friendId } },
             { runValidators: true, new: true },
         )
-            .select('-__v')
             .then(user =>
                 !user
                     ? res.status(404).json({ message: 'No such user exists.' })
