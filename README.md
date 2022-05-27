@@ -33,7 +33,6 @@
 <h3 align="center">Social Network API</h3>
 
   <p align="center">
-    A web application with a backend built in Express.js that maintains notes written and saved by the user.
     <br />
     <a href="https://github.com/AlecDziwanowski/HW18-SocialNetworkAPI"><strong>Explore the docs »</strong></a>
     <br />
